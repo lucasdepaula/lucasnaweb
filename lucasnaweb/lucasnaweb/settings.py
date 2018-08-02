@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+from .secret import EmailSettings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -134,3 +134,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #SITE
 
 SITE_ID = 1
+
+#Email Configuration
+email = EmailSettings
+EMAIL_BACKEND = email.EMAIL_BACKEND
+DEFAULT_FROM_EMAIL = email.DEFAULT_FROM_EMAIL
+EMAIL_HOST_USER = email.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = email.EMAIL_HOST_PASSWORD
+EMAIL_USE_TLS = email.EMAIL_USE_TLS
+EMAIL_PORT = email.EMAIL_PORT

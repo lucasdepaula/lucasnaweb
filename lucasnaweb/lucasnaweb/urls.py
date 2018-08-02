@@ -29,5 +29,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('sobre/', views.about, name='about'),
     path('contato/', views.contact, name='contact'),
-    path('sitemap.xml', sitemap, {'sitemaps': {'blog': GenericSitemap(utils.sitemapDict, 0.5, 'weekly')}}, name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': {'static': utils.StaticSiteMap,'pages': GenericSitemap(utils.sitemapPages,0.5,'weekly'), 'blog': GenericSitemap(utils.sitemapPosts, 0.5, 'weekly')}}, name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
