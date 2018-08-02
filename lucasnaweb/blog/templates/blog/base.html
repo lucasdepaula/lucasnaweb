@@ -1,11 +1,10 @@
 {% load static %}
 <html>
     <head>
-        <title>Lucas na Web - Random notes about everything</title>
+        {% block seo %}{% endblock %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="author" content="Lucas de Paula">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -32,41 +31,10 @@
             </div>
         </nav>
 
-        <!-- Section 2 : Header -->
 
-        <header class="master_header" style="background-image: url({% static 'images/header-blog-posts.jpg' %})">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <div class="site-heading">
-                            <h1>Lucas na Web</h1>
-                            <span class="subheading">Notas aleatórias sobre coisas aleatórias</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        {% block content %}
+        {% endblock %}
 
-        <!-- Section 3 : Content -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    {% for post in posts %}
-                    <div class="post-preview">
-                        <a href="#">
-                            <h2 class="post-title">{{post.title}}</h2>
-                            <h3 class="post-subtitle">{{post.subtitle}}</h3>
-                        </a>
-                        <p class="post-meta">por: {{post.author}}, em {{post.published_date}}</p>
-                    </div>
-                    <hr>
-                    {% endfor %}
-                    
-                </div>
-            </div>
-        </div>
 
         <!--Section 4 : Footer -->
         <footer>
@@ -75,7 +43,7 @@
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="https://m.me/lucasdepaulaoficial" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-facebook-messenger fa-stack-1x fa-inverse"></i>
@@ -83,7 +51,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="https://github.com/lucasdepaula" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -91,7 +59,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="https://www.linkedin.com/in/lucasdepaula/" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>

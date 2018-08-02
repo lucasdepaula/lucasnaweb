@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block seo %}
+        <title>Blog - Lucas na Web - Random notes about everything</title>
+        <meta name="description" content="teste">
+{% endblock %}
+
+{% block content %}
+<!-- Section 2 : Header -->
+
+        <header class="master_header" style="background-image: url({% static 'images/header-blog-posts.jpg' %})">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1>Lucas na Web</h1>
+                            <span class="subheading">Notas aleatórias sobre coisas aleatórias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Section 3 : Content -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {% for post in posts %}
+                    <div class="post-preview">
+                        <a href="post/{{post.slug}}/">
+                            <h2 class="post-title">{{post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.subtitle}}</h3>
+                        </a>
+                        <p class="post-meta">por: {{post.author}}, em {{post.published_date}}</p>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
