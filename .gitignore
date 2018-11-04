@@ -6,3 +6,4 @@ site_env
 /static
 .DS_Store
 .vscode
+/lucasnaweb/secret.py

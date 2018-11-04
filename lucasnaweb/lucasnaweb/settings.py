@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+from .secret import EmailSettings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'django.contrib.redirects',
+    'django.contrib.sites',
     'blog',
 ]
 
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'lucasnaweb.urls'
@@ -104,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -119,3 +123,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Media
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#SITE
+
+SITE_ID = 1
+
+#Email Configuration
+email = EmailSettings
+EMAIL_BACKEND = email.EMAIL_BACKEND
+DEFAULT_FROM_EMAIL = email.DEFAULT_FROM_EMAIL
+EMAIL_HOST_USER = email.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = email.EMAIL_HOST_PASSWORD
+EMAIL_USE_TLS = email.EMAIL_USE_TLS
+EMAIL_PORT = email.EMAIL_PORT

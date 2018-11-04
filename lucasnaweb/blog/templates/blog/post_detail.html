@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block seo %}
+        <title>{{post.title}} | Blog - Lucas na Web</title>
+        <meta name="description" content="{{post.description}}">
+{% endblock %}
+
+{% block content %}
+<!-- Section 2 : Header -->
+
+        <header class="master_header" style="background-image: url('/media/{{post.jumbotron}}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="post-heading">
+                            <h1>{{post.title}}</h1>
+                            <span class="subheading">{{post.subtitle}}</span>
+                            <span class="meta">por: {{post.author}}, em {{post.published_date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Section 3 : Content -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {{post.text|linebreaks}}
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
